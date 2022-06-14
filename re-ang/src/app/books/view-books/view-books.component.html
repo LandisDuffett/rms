@@ -1,0 +1,131 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-2">
+        </div>
+        <div class="col-8">
+            <button 
+                type="button" 
+                class="btn btn-success" 
+                (click)="displayBookForm()">Add Book</button>
+            <div *ngIf="shouldDisplay">
+                <div class="container">
+                 <form>
+                  <div class="card m-3">
+                    <div class="card-header bg-warning">BOOK FORM</div>
+                    <div class="card-body">
+                        
+                        <div class="mb-3 mt-3">
+                            <label for="bTitle" class="form-label">Book Title:</label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="bTitle" 
+                                placeholder="Enter book title" 
+                                name="bookTitle"
+                                [(ngModel)]="newBook.bookTitle"
+                                #bkTitle="ngModel"
+                                required>
+
+                            <div *ngIf="!bkTitle.valid && bkTitle.touched" class="text-danger small">
+                                   Book Title is required!
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="bAuthor" class="form-label">Book Author:</label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="bAuthor" 
+                                placeholder="Enter book author" 
+                                name="bookAuthor"
+                                [(ngModel)]="newBook.bookAuthor">
+                        </div>
+                        <div class="mb-3">
+                            <label for="bGenre" class="form-label">Book Genre:</label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="bGenre" 
+                                placeholder="Enter book genre" 
+                                name="bookGenre"
+                                [(ngModel)]="newBook.bookGenre">
+                        </div>
+                        <div class="mb-3">
+                            <label for="bCost" class="form-label">Book Cost:</label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="bCost" 
+                                placeholder="Enter book cost" 
+                                name="bookCost"
+                                [(ngModel)]="newBook.bookCost">
+                        </div>
+                        <div class="mb-3">
+                            <label for="bImage" class="form-label">Book Image Url:</label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="bImage" 
+                                placeholder="Enter book image url" 
+                                name="bookImage"
+                                [(ngModel)]="newBook.bookImage">
+                        </div>
+                    </div>
+                    <div class="card-footer bg-warning">
+                        <button 
+                            type="button" 
+                            class="btn btn-success" 
+                            (click)="addANewBook()">Add a New Book</button>
+                    </div>
+                  </div>
+                 </form>
+                </div>
+            </div>
+            <h2>View Books</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>IMAGE</td>
+                        <td>TITLE</td>
+                        <td>GENRE</td>
+                        <td>AUTHOR</td>
+                        <td>COST</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let book of currentAllBooks">
+                       <td>{{ book.id }}</td> 
+                       <td><img [src]="book.bookImage" height="80px" width="100px"></td> 
+                       <td>{{ book.bookTitle }}</td> 
+                       <td>{{ book.bookGenre | uppercase}}</td> 
+                       <td>{{ book.bookAuthor }}</td> 
+                       <td>{{ book.bookCost }}</td> 
+                       <td>
+                            <button
+                                type="button"
+                                class="btn btn-primary"
+                                (click)="goToEditBook(book.id)">
+                                    <i class="material-icons">edit</i>
+                            </button>
+                       </td>
+                       <td>
+                        <button
+                            type="button"
+                            class="btn btn-danger"
+                            (click)="deleteBook(book.id)">
+                                <i class="material-icons">delete</i>
+                        </button>
+                       </td>
+                    
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+        <div class="col-2">
+        </div>
+    </div>
+</div>

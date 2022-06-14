@@ -1,0 +1,70 @@
+<div class="container">
+    <form #myForm="ngForm">
+        <div class="card m-3">
+            <div class="card-header bg-primary text-white">PERSONAL INFO UPDATE FORM</div>
+            <div class="card-body">
+                <div class="mb-3 mt-3">
+                    Employee ID : {{updateEmployee.userId }}
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="fName" class="form-label">First Name:</label>
+                    <input type="text" class="form-control" id="fName" placeholder="Enter first name" name="firstName"
+                        [(ngModel)]="updateEmployee.userFirstName" required minlength="2" maxlength="200"
+                        #frstName="ngModel">
+                    <div *ngIf="!frstName.valid" class="text-danger small">
+                        First Name is required!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="lName" class="form-label">Last Name:</label>
+                    <input type="text" class="form-control" id="lName" placeholder="Enter last name" name="lastName"
+                        required #lstName="ngModel" [(ngModel)]="updateEmployee.userLastName">
+                    <div *ngIf="!lstName.valid" class="text-danger small">
+                        Last Name is required!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="eMail" class="form-label">Email:</label>
+                    <input type="text" class="form-control" id="eMail" placeholder="Enter book genre"
+                        name="emailAddress" #emAdd="ngModel" [(ngModel)]="updateEmployee.userEmail" required>
+                    <div *ngIf="!emAdd.valid" class="text-danger small">
+                        Email Address is required!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="pWord" class="form-label">Password:</label>
+                    <input type="text" class="form-control" id="pWord" placeholder="Enter book genre" name="passWord"
+                        #psWrd="ngModel" [(ngModel)]="updateEmployee.userPassword" required>
+                    <div *ngIf="!psWrd.valid" class="text-danger small">
+                        Password is required!
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-primary">
+                <button type="button" class="btn btn-warning" (click)="updateEmpInfo()"
+                    [disabled]="!myForm.valid">Update</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="container">
+    <h3>Your updated info:</h3>
+    <table>
+        <thead >
+            <tr>
+                <td>EMPLOYEE ID</td>
+                <td>FIRST NAME</td>
+                <td>LAST NAME</td>
+                <td>EMAIL</td>
+                <td>PASSWORD</td>
+            </tr>
+        </thead>
+        <tbody>
+                <td>{{ currentUserInfo.userId }}</td> 
+                <td>{{ currentUserInfo.userFirstName }}</td> 
+                <td>{{ currentUserInfo.userLastName }}</td> 
+                <td>{{ currentUserInfo.userEmail }}</td> 
+                <td>{{ currentUserInfo.userPassword }}</td> 
+        </tbody>
+    </table>
+</div>
