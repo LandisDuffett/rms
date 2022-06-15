@@ -14,4 +14,5 @@ public interface UserService {
 	List<UserPojo> getAllUsers();
 	
 	UserPojo getAUser(int userId);
+
 }

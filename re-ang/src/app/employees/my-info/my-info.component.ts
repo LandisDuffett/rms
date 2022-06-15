@@ -17,6 +17,8 @@ export class MyInfoComponent implements OnInit {
   shouldDisplay: boolean = false;
 
   oldPassword: string = "";
+  confirmNewPassword: string = "";
+  showPassword: boolean = false;
 
   updateEmployee: any = {
     userId: 0,
@@ -25,6 +27,15 @@ export class MyInfoComponent implements OnInit {
     userEmail: '',
     userPassword: '',
     userRole: ''
+  }
+
+  updatePwd: any = {
+    userId: this.currentUserInfo.userId,
+    userFirstName: this.currentUserInfo.userFirstName,
+    userLastName: this.currentUserInfo.userLastName, 
+    userEmail: this.currentUserInfo.userEmail,
+    userPassword: '',
+    userRole: this.currentUserInfo.userRole
   }
 
   constructor(private employeeService: EmployeeService, private router: Router, private authService: AuthService, private activatedRoute: ActivatedRoute) { 
@@ -37,6 +48,10 @@ export class MyInfoComponent implements OnInit {
   loadData(){
   }
 
+  logTheChanges(title: any){
+    console.log(title);
+  }
+
   displayResetForm(){
     if(this.shouldDisplay){
       this.shouldDisplay = false;
@@ -45,12 +60,28 @@ export class MyInfoComponent implements OnInit {
     }
   }
 
+  showHidePassword() {
+    this.showPassword = !this.showPassword;
+  }
+
   updateEmpInfo(){
     //updates info in db
     //response returns updated info, which is set in session storage
     //current info is retrieved from session storage and set to currentUserInfo to show updated info to user
     //current info is also set to updateEmployee, which is two-way bound to form in template
     this.employeeService.updateEmployee(this.updateEmployee).subscribe((response)=>{
+      this.authService.storeUserInfo(response);
+      this.currentUserInfo = this.authService.retreiveUserInfo();
+      this.updateEmployee =  this.authService.retreiveUserInfo();
+    })
+  }
+
+  updatePassword(){
+    //updates info in db
+    //response returns updated info, which is set in session storage
+    //current info is retrieved from session storage and set to currentUserInfo to show updated info to user
+    //current info is also set to updateEmployee, which is two-way bound to form in template
+    this.employeeService.updateEmployee(this.updatePwd).subscribe((response)=>{
       this.authService.storeUserInfo(response);
       this.currentUserInfo = this.authService.retreiveUserInfo();
       this.updateEmployee =  this.authService.retreiveUserInfo();

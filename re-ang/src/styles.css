@@ -49,6 +49,17 @@ td {
     margin-left: 8px;
 }
 
+.viz {
+    display: flex;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+}
+
+
+
 
 
 
