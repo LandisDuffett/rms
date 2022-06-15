@@ -83,5 +83,20 @@ public class RequestServiceImpl implements RequestService {
 		}
 		return requestPojo;
 	}
+	
+	@Override
+	public List<RequestPojo> getRequestsByUserId(int userid) {
+		List<RequestEntity> allRequestsEntity = requestDao.findByRequestUserId(userid);
+		// now we have to copy each book entity object in the collection to a collection on book pojo
+		// create a empty collection of book pojo
+		List<RequestPojo> allRequestsPojo = new ArrayList<RequestPojo>();
+		for(RequestEntity fetchedRequestEntity: allRequestsEntity) {
+			RequestPojo returnRequestPojo = new RequestPojo(fetchedRequestEntity.getRequestId(), fetchedRequestEntity.getRequestUserId(), 
+					fetchedRequestEntity.getRequestAmount(), fetchedRequestEntity.getRequestDescription(), fetchedRequestEntity.getRequestStatus(), 
+					fetchedRequestEntity.getRequestImagURL(), fetchedRequestEntity.getRequestTime(), fetchedRequestEntity.getResolvedTime());
+					allRequestsPojo.add(returnRequestPojo);
+		}
+		return allRequestsPojo;
+	}
 
 }

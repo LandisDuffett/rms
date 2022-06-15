@@ -8,7 +8,7 @@ import { User } from './user.model';
 })
 export class UsersService {
 
-  baseUrl: string = "http://localhost:7474/users";
+  baseUrl: string = "http://localhost:7474/api/users";
   
   constructor(private http: HttpClient) { }
 
@@ -17,8 +17,8 @@ export class UsersService {
     return this.http.post<User>(this.baseUrl, user);
   }*/
 
-  validateUser(email: string, password: string): Observable<User>{
-    return this.http.get<User>(this.baseUrl+'/'+email+'/'+password);
+  validateUser(user: User): Observable<User>{
+    return this.http.post<User>(this.baseUrl+"/email/password", user);
   }
 
 }

@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginValidation(){
-    this.userService.validateUser(this.user.userEmail, this.user.userPassword).subscribe((response)=>{
+    this.userService.validateUser(this.user).subscribe((response)=>{
         //login success
         // send the respone to auth service and store the info in the session storage
         this.authService.storeUserInfo(response);

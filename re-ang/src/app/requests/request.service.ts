@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RequestService {
-  baseUrl: string = "http://localhost:7474/requests";
+  baseUrl: string = "http://localhost:7474/api/requests";
   
   constructor(private http: HttpClient) { }
 
@@ -33,7 +33,7 @@ export class RequestService {
 
   //get all requests for a specific employee
   getEmpReqs(userId:number): Observable<any[]>{
-    return this.http.get<any[]>(this.baseUrl+"/"+userId)
+    return this.http.get<any[]>(this.baseUrl+"/userid/"+userId)
   }
   
 }

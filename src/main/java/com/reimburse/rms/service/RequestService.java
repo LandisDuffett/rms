@@ -15,4 +15,6 @@ public interface RequestService {
 	List<RequestPojo> getAllRequests();
 	
 	RequestPojo getARequest(int requestId);
+	
+	List<RequestPojo> getRequestsByUserId(int uid);
 }

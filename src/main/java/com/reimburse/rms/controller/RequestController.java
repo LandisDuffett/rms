@@ -38,6 +38,7 @@ public class RequestController {
 		return requestService.deleteRequest(requestId);
 	}
 	
+	
 	//books/2
 	@GetMapping("requests/{rid}")
 	public RequestPojo getARequest(@PathVariable("rid") int requestId) {
@@ -54,6 +55,13 @@ public class RequestController {
 	@PutMapping("requests")
 	public RequestPojo updateRequest(@RequestBody RequestPojo requestPojo) {
 		return requestService.updateRequest(requestPojo);
+	}
+	
+	// http://localhost:5555/api/books/Comedy
+	@GetMapping("requests/userid/{uid}")
+	public List<RequestPojo> getRequestsByUserId(@PathVariable("uid") int uid) {
+		return requestService.getRequestsByUserId(uid);
+			
 	}
 	
 }

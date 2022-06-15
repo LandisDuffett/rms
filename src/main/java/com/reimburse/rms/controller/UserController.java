@@ -40,9 +40,9 @@ public class UserController {
 	}
 	
 	//books/2
-	@GetMapping("users/{uid}")
-	public UserPojo getAUser(@PathVariable("uid") int userId) throws ApplicationException {
-		return userService.getAUser(userId);
+	@PostMapping("users/email/password")
+	public UserPojo getUserByEmaiilAndPassword(@RequestBody UserPojo userPojo) throws ApplicationException {
+		return userService.getUserByEmailAndPassword(userPojo);
 	}
 	
 	//https://localhost:555/api/books

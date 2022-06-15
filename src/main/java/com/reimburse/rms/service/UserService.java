@@ -15,4 +15,5 @@ public interface UserService {
 	
 	UserPojo getAUser(int userId);
 
+	UserPojo getUserByEmailAndPassword(UserPojo userPojo);
 }

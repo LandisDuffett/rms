@@ -85,5 +85,22 @@ public class UserServiceImpl implements UserService{
 		}
 		return userPojo;
 	}
+	
+	@Override
+	public UserPojo getUserByEmailAndPassword(UserPojo userPojo) {
+		Optional<UserEntity> userEntityOpt = userDao.findByUserEmailAndUserPassword(userPojo.getUserEmail(), userPojo.getUserPassword());
+		userPojo = null;
+		if(userEntityOpt.isPresent()) {
+			//take out the entity object which is wrapped into the optional object
+			UserEntity fetchedUserEntity = userEntityOpt.get();
+			//copy the entity into the pojo
+			userPojo = new UserPojo(fetchedUserEntity.getUserId(), fetchedUserEntity.getUserFirstName(), 
+					fetchedUserEntity.getUserLastName(), fetchedUserEntity.getUserEmail(), 
+					fetchedUserEntity.getUserPassword(), fetchedUserEntity.getUserRole());
+			//bookPojo = new BookPojo();
+			//BeanUtils.copyProperties(fetchedBookEntity, bookPojo); //nested copying will not take place
+		}
+		return userPojo;
+	}
 
 }
