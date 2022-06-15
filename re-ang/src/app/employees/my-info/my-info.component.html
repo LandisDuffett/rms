@@ -55,7 +55,7 @@
                 <label for="oPwd" class="form-label">Enter old password:</label>
                 <div class="viz">
                 <input 
-                    [type]=" showPassword ? 'text' : 'password' " 
+                    [type]=" showOldPassword ? 'text' : 'password' " 
                     class="form-control" 
                     id="oPwd" 
                     placeholder="Enter old password" 
@@ -67,7 +67,7 @@
                     <button 
                     type="button" 
                     class="btn btn-sm btn-success" 
-                    (click)="showHidePassword()"><i class="material-icons">visibility</i></button></div>
+                    (click)="showHideOPassword()"><i class="material-icons">visibility</i></button></div>
                 <div *ngIf="oldPassword != currentUserInfo.userPassword && oPas.touched" class="text-danger small">
                        password is incorrect!
                 </div>
@@ -76,7 +76,7 @@
                 <label for="nPwd" class="form-label">Enter new password:</label>
                 <div class="viz">
                 <input 
-                    type="password" 
+                    [type]=" showNewPassword ? 'text' : 'password' " 
                     class="form-control" 
                     id="nPwd" 
                     placeholder="Enter new password" 
@@ -87,7 +87,7 @@
                     <button 
                     type="button" 
                     class="btn btn-sm btn-success" 
-                    (click)="showHidePassword()"><i class="material-icons">visibility</i></button></div>
+                    (click)="showHideNPassword()"><i class="material-icons">visibility</i></button></div>
                 <div *ngIf="!nPas.valid && nPas.touched" class="text-danger small">
                         New password must be betwen 1 and 20 characters long.
                  </div>
@@ -96,7 +96,7 @@
                 <label for="cPwd" class="form-label">Retype new password:</label>
                 <div class="viz">
                 <input 
-                    type="password" 
+                    [type]=" showConfirmPassword ? 'text' : 'password' " 
                     class="form-control" 
                     id="cPwd" 
                     placeholder="Retype new password" 
@@ -107,7 +107,7 @@
                     <button 
                     type="button" 
                     class="btn btn-sm btn-success" 
-                    (click)="showHidePassword()"><i class="material-icons">visibility</i></button></div>
+                    (click)="showHideConPassword()"><i class="material-icons">visibility</i></button></div>
                     <div *ngIf="confirmNewPassword != updatePwd.userPassword && cPas.touched" class="text-danger small">
                         Password entries don't match
                  </div>

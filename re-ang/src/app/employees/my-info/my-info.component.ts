@@ -18,7 +18,9 @@ export class MyInfoComponent implements OnInit {
 
   oldPassword: string = "";
   confirmNewPassword: string = "";
-  showPassword: boolean = false;
+  showOldPassword: boolean = false;
+  showNewPassword: boolean = false;
+  showConfirmPassword: boolean = false;
 
   updateEmployee: any = {
     userId: 0,
@@ -60,8 +62,16 @@ export class MyInfoComponent implements OnInit {
     }
   }
 
-  showHidePassword() {
-    this.showPassword = !this.showPassword;
+  showHideOPassword() {
+    this.showOldPassword = !this.showOldPassword;
+  }
+
+  showHideNPassword() {
+    this.showNewPassword = !this.showNewPassword;
+  }
+
+  showHideConPassword() {
+    this.showConfirmPassword = !this.showConfirmPassword;
   }
 
   updateEmpInfo(){
@@ -82,9 +92,13 @@ export class MyInfoComponent implements OnInit {
     //current info is retrieved from session storage and set to currentUserInfo to show updated info to user
     //current info is also set to updateEmployee, which is two-way bound to form in template
     this.employeeService.updateEmployee(this.updatePwd).subscribe((response)=>{
+      this.oldPassword = '';
+      this.confirmNewPassword = '';
+      this.updatePwd.userPassword = '';
       this.authService.storeUserInfo(response);
       this.currentUserInfo = this.authService.retreiveUserInfo();
       this.updateEmployee =  this.authService.retreiveUserInfo();
+      this.shouldDisplay = false;
     })
   }
 
