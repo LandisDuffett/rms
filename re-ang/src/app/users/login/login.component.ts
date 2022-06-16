@@ -31,6 +31,8 @@ export class LoginComponent implements OnInit {
 
   loginValidation(){
     this.userService.validateUser(this.user).subscribe((response)=>{
+      console.log(response==null);
+      if(response != null ){
         //login success
         // send the respone to auth service and store the info in the session storage
         this.authService.storeUserInfo(response);
@@ -47,10 +49,13 @@ export class LoginComponent implements OnInit {
             // route to display component
             this.router.navigate(['my-requests']);
         }
-      },
-      (error) => {
-        Swal.fire("Invalid login credentials. Try again.");
+      }else{
+        //login failed
+        // stay back in this component and display
+            // an error message on the the template
+        Swal.fire("invalid login credentials");
       }
-    )
+    
+    });
   }
 }

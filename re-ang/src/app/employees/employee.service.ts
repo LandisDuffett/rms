@@ -18,7 +18,7 @@ export class EmployeeService {
 
   getEmpReqs(userId:number): Observable<any[]>{
     //fetch to request endpoint is needed in this component to allow displaying requests by employee
-    return this.http.get<any[]>("http://localhost:7474/requests"+"/"+userId)
+    return this.http.get<any[]>("http://localhost:7474/api/requests/userid"+"/"+userId)
   }
 
   deleteEmployee(userId: number): Observable<boolean>{
