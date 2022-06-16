@@ -1,11 +1,24 @@
 package com.reimburse.rms.pojo;
 
+import javax.validation.constraints.NotNull;
+
 public class UserPojo {
 	private int userId;
+	
+	@NotNull
 	private String userFirstName;
+	
+	@NotNull
+	
 	private String userLastName;
+	
+	@NotNull
 	private String userEmail;
+	
+	@NotNull
 	private String userPassword;
+	
+	@NotNull
 	private String userRole;
 	
 	public UserPojo() {

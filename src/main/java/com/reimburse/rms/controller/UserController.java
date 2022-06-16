@@ -2,6 +2,8 @@ package com.reimburse.rms.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -47,13 +49,13 @@ public class UserController {
 	
 	//https://localhost:555/api/books
 	@PostMapping("users")
-	public UserPojo addUser(@RequestBody UserPojo userPojo) throws ApplicationException {
+	public UserPojo addUser(@Valid @RequestBody UserPojo userPojo) throws ApplicationException {
 		return userService.addUser(userPojo);
 	}
 	
 	//https://localhost:555/api/books
 	@PutMapping("users")
-	public UserPojo updateUser(@RequestBody UserPojo userPojo) throws ApplicationException {
+	public UserPojo updateUser(@Valid @RequestBody UserPojo userPojo) throws ApplicationException {
 		return userService.updateUser(userPojo);
 	}
 	

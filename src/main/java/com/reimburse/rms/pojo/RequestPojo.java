@@ -1,13 +1,25 @@
 package com.reimburse.rms.pojo;
 
+import javax.validation.constraints.NotNull;
+
 public class RequestPojo {
 
 	private int requestId;
+	
+	@NotNull
 	private int userId;
+	
+	@NotNull
 	private double requestAmount;
+	
+	@NotNull
 	private String requestDescription;
+	
+	@NotNull
 	private String requestStatus;
 	private String requestImageURL;
+	
+	@NotNull
 	private String requestTime;
 	private String resolvedTime;
 	
