@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.reimburse.rms.exception.ApplicationException;
+import com.reimburse.rms.exception.RequestsNotFoundException;
 import com.reimburse.rms.pojo.RequestPojo;
 import com.reimburse.rms.service.RequestService;
 
@@ -30,38 +32,38 @@ public class RequestController {
 	//create the rest methods for the rest endpoints
 	//https://localhost:5555/api/books
 	@GetMapping("requests")
-	public List<RequestPojo> getAllRequests() {
+	public List<RequestPojo> getAllRequests() throws ApplicationException {
 		return requestService.getAllRequests();
 	}
 	
 	//http://localhost:5555/api/books/2
 	@DeleteMapping("requests/{rid}")
-	public boolean deleteRequest(@PathVariable("rid") int requestId) {
+	public boolean deleteRequest(@PathVariable("rid") int requestId) throws ApplicationException {
 		return requestService.deleteRequest(requestId);
 	}
 	
 	
 	//books/2
 	@GetMapping("requests/{rid}")
-	public RequestPojo getARequest(@PathVariable("rid") int requestId) {
+	public RequestPojo getARequest(@PathVariable("rid") int requestId) throws ApplicationException {
 		return requestService.getARequest(requestId);
 	}
 	
 	//https://localhost:555/api/books
 	@PostMapping("requests")
-	public RequestPojo addRequest(@Valid @RequestBody RequestPojo requestPojo) {
+	public RequestPojo addRequest(@Valid @RequestBody RequestPojo requestPojo) throws ApplicationException {
 		return requestService.addRequest(requestPojo);
 	}
 	
 	//https://localhost:555/api/books
 	@PutMapping("requests")
-	public RequestPojo updateRequest(@Valid @RequestBody RequestPojo requestPojo) {
+	public RequestPojo updateRequest(@Valid @RequestBody RequestPojo requestPojo) throws ApplicationException {
 		return requestService.updateRequest(requestPojo);
 	}
 	
 	// http://localhost:5555/api/books/Comedy
 	@GetMapping("requests/userid/{uid}")
-	public List<RequestPojo> getRequestsByUserId(@PathVariable("uid") int uid) {
+	public List<RequestPojo> getRequestsByUserId(@PathVariable("uid") int uid) throws ApplicationException, RequestsNotFoundException {
 		return requestService.getRequestsByUserId(uid);
 			
 	}

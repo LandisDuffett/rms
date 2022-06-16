@@ -12,6 +12,7 @@ import com.reimburse.rms.dao.UserDao;
 import com.reimburse.rms.entity.RequestEntity;
 import com.reimburse.rms.entity.UserEntity;
 import com.reimburse.rms.exception.ApplicationException;
+import com.reimburse.rms.exception.UserNotFoundException;
 import com.reimburse.rms.pojo.RequestPojo;
 import com.reimburse.rms.pojo.UserPojo;
 
@@ -26,7 +27,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public UserPojo addUser(UserPojo userPojo) {
+	public UserPojo addUser(UserPojo userPojo) throws ApplicationException {
 		//copy the pojo into an entity object
 		UserEntity userEntity = new UserEntity();
 		BeanUtils.copyProperties(userPojo, userEntity);
@@ -38,7 +39,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public UserPojo updateUser(UserPojo userPojo) {
+	public UserPojo updateUser(UserPojo userPojo) throws ApplicationException {
 		UserEntity userEntity = new UserEntity();
 		BeanUtils.copyProperties(userPojo, userEntity);
 		
@@ -48,13 +49,13 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public boolean deleteUser(int userId) {
+	public boolean deleteUser(int userId) throws ApplicationException {
 		userDao.deleteById(userId);
 		return true;
 	}
 
 	@Override
-	public List<UserPojo> getAllUsers() {
+	public List<UserPojo> getAllUsers() throws ApplicationException {
 		List<UserEntity> allUsersEntity = userDao.findAll();
 		//now we have to copy each book entity object in the collection to a 
 		//collection of book pojos
@@ -70,7 +71,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public UserPojo getAUser(int userId) {
+	public UserPojo getAUser(int userId) throws ApplicationException {
 		Optional<UserEntity> userEntityOpt = userDao.findById(userId);
 		UserPojo userPojo = null;
 		if(userEntityOpt.isPresent()) {
@@ -87,7 +88,7 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	@Override
-	public UserPojo getUserByEmailAndPassword(UserPojo userPojo) {
+	public UserPojo getUserByEmailAndPassword(UserPojo userPojo) throws ApplicationException, UserNotFoundException {
 		Optional<UserEntity> userEntityOpt = userDao.findByUserEmailAndUserPassword(userPojo.getUserEmail(), userPojo.getUserPassword());
 		userPojo = null;
 		if(userEntityOpt.isPresent()) {
@@ -99,6 +100,8 @@ public class UserServiceImpl implements UserService{
 					fetchedUserEntity.getUserPassword(), fetchedUserEntity.getUserRole());
 			//bookPojo = new BookPojo();
 			//BeanUtils.copyProperties(fetchedBookEntity, bookPojo); //nested copying will not take place
+		} else {
+			throw new UserNotFoundException();
 		}
 		return userPojo;
 	}

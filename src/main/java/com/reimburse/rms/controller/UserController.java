@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.reimburse.rms.exception.ApplicationException;
+import com.reimburse.rms.exception.UserNotFoundException;
 import com.reimburse.rms.pojo.UserPojo;
 import com.reimburse.rms.service.UserService;
 
@@ -43,7 +44,7 @@ public class UserController {
 	
 	//books/2
 	@PostMapping("users/email/password")
-	public UserPojo getUserByEmaiilAndPassword(@RequestBody UserPojo userPojo) throws ApplicationException {
+	public UserPojo getUserByEmaiilAndPassword(@RequestBody UserPojo userPojo) throws ApplicationException, UserNotFoundException {
 		return userService.getUserByEmailAndPassword(userPojo);
 	}
 	

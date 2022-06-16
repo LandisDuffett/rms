@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.reimburse.rms.dao.RequestDao;
 import com.reimburse.rms.entity.RequestEntity;
 import com.reimburse.rms.exception.ApplicationException;
+import com.reimburse.rms.exception.RequestsNotFoundException;
 import com.reimburse.rms.pojo.RequestPojo;
 
 @Service
@@ -24,7 +25,7 @@ public class RequestServiceImpl implements RequestService {
 	}
 
 	@Override
-	public RequestPojo addRequest(RequestPojo requestPojo) {
+	public RequestPojo addRequest(RequestPojo requestPojo) throws ApplicationException {
 		//copy the pojo into an entity object
 		RequestEntity requestEntity = new RequestEntity();
 		BeanUtils.copyProperties(requestPojo, requestEntity);
@@ -36,7 +37,7 @@ public class RequestServiceImpl implements RequestService {
 	}
 
 	@Override
-	public RequestPojo updateRequest(RequestPojo requestPojo) {
+	public RequestPojo updateRequest(RequestPojo requestPojo) throws ApplicationException {
 		RequestEntity requestEntity = new RequestEntity();
 		BeanUtils.copyProperties(requestPojo, requestEntity);
 		
@@ -46,13 +47,13 @@ public class RequestServiceImpl implements RequestService {
 	}
 
 	@Override
-	public boolean deleteRequest(int requestId) {
+	public boolean deleteRequest(int requestId) throws ApplicationException {
 		requestDao.deleteById(requestId);
 		return true;
 	}
 
 	@Override
-	public List<RequestPojo> getAllRequests() {
+	public List<RequestPojo> getAllRequests() throws ApplicationException {
 		List<RequestEntity> allRequestsEntity = requestDao.findAll();
 		//now we have to copy each book entity object in the collection to a 
 		//collection of book pojos
@@ -68,7 +69,7 @@ public class RequestServiceImpl implements RequestService {
 	}
 
 	@Override
-	public RequestPojo getARequest(int requestId) {
+	public RequestPojo getARequest(int requestId) throws ApplicationException {
 		Optional<RequestEntity> requestEntityOpt = requestDao.findById(requestId);
 		RequestPojo requestPojo = null;
 		if(requestEntityOpt.isPresent()) {
@@ -85,16 +86,19 @@ public class RequestServiceImpl implements RequestService {
 	}
 	
 	@Override
-	public List<RequestPojo> getRequestsByUserId(int userid) {
+	public List<RequestPojo> getRequestsByUserId(int userid) throws ApplicationException, RequestsNotFoundException {
 		List<RequestEntity> allRequestsEntity = requestDao.findByRequestUserId(userid);
 		// now we have to copy each book entity object in the collection to a collection on book pojo
 		// create a empty collection of book pojo
 		List<RequestPojo> allRequestsPojo = new ArrayList<RequestPojo>();
+		if(allRequestsEntity.size() > 0) {
 		for(RequestEntity fetchedRequestEntity: allRequestsEntity) {
 			RequestPojo returnRequestPojo = new RequestPojo(fetchedRequestEntity.getRequestId(), fetchedRequestEntity.getRequestUserId(), 
 					fetchedRequestEntity.getRequestAmount(), fetchedRequestEntity.getRequestDescription(), fetchedRequestEntity.getRequestStatus(), 
 					fetchedRequestEntity.getRequestImagURL(), fetchedRequestEntity.getRequestTime(), fetchedRequestEntity.getResolvedTime());
 					allRequestsPojo.add(returnRequestPojo);
+		}} else {
+			throw new RequestsNotFoundException(userid);
 		}
 		return allRequestsPojo;
 	}

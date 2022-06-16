@@ -9,7 +9,6 @@ public class UserPojo {
 	private String userFirstName;
 	
 	@NotNull
-	
 	private String userLastName;
 	
 	@NotNull
