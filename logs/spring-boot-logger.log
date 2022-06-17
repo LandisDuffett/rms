@@ -5,3 +5,15 @@
 2022-06-16 14:52:52,990 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-2] Entering UserServiceImpl.com.reimburse.rms.service.UserServiceImpl
 2022-06-16 14:52:53,013 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-2] Exiting UserServiceImpl.com.reimburse.rms.service.UserServiceImpl
 2022-06-16 14:52:53,013 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-2] Exiting UserController.com.reimburse.rms.controller.UserController
+2022-06-16 17:26:44,221 INFO org.springframework.boot.StartupInfoLogger [main] Starting RmsApplicationTests using Java 18.0.1.1 on DESKTOP-VVPO5PK with PID 21184 (started by Landis in C:\Users\Landis\eclipse-space3\rms.zip_expanded\rms)
+2022-06-16 17:26:44,222 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-06-16 17:26:47,696 INFO org.springframework.boot.StartupInfoLogger [main] Started RmsApplicationTests in 3.721 seconds (JVM running for 4.525)
+2022-06-16 17:29:42,178 INFO org.springframework.boot.StartupInfoLogger [main] Starting RmsApplicationTests using Java 18.0.1.1 on DESKTOP-VVPO5PK with PID 4672 (started by Landis in C:\Users\Landis\eclipse-space3\rms.zip_expanded\rms)
+2022-06-16 17:29:42,179 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-06-16 17:29:46,817 INFO org.springframework.boot.StartupInfoLogger [main] Started RmsApplicationTests in 4.932 seconds (JVM running for 5.707)
+2022-06-16 17:31:39,714 INFO org.springframework.boot.StartupInfoLogger [main] Starting RmsApplicationTests using Java 18.0.1.1 on DESKTOP-VVPO5PK with PID 1308 (started by Landis in C:\Users\Landis\eclipse-space3\rms.zip_expanded\rms)
+2022-06-16 17:31:39,716 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-06-16 17:31:44,582 INFO org.springframework.boot.StartupInfoLogger [main] Started RmsApplicationTests in 5.287 seconds (JVM running for 6.337)
+2022-06-16 17:34:04,440 INFO org.springframework.boot.StartupInfoLogger [main] Starting RmsApplicationTests using Java 18.0.1.1 on DESKTOP-VVPO5PK with PID 18544 (started by Landis in C:\Users\Landis\eclipse-space3\rms.zip_expanded\rms)
+2022-06-16 17:34:04,442 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-06-16 17:34:09,128 INFO org.springframework.boot.StartupInfoLogger [main] Started RmsApplicationTests in 4.977 seconds (JVM running for 5.761)
