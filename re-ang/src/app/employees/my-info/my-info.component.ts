@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/users/auth.service';
 import { User } from 'src/app/users/user.model';
+import Swal from 'sweetalert2';
 import { EmployeeService } from '../employee.service';
 
 
@@ -55,11 +56,27 @@ export class MyInfoComponent implements OnInit {
   }
 
   displayResetForm(){
-    if(this.shouldDisplay){
+   /* if(this.shouldDisplay){
       this.shouldDisplay = false;
     }else{
       this.shouldDisplay = true;
-    }
+    }*/
+    Swal.fire({
+      title: 'You will be logged out after submitting new password and must then log in again with new password. Do you wish to proceed?',
+      showDenyButton: false,
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      denyButtonText: 'No',
+      customClass: {
+        actions: 'my-actions',
+        cancelButton: 'order-1 right-gap',
+        confirmButton: 'order-2',
+        denyButton: 'order-3',
+      }}).then((result) => {
+        if (result.isConfirmed) {
+          this.shouldDisplay = true;
+        }
+      })
   }
 
   showHideOPassword() {
@@ -92,13 +109,14 @@ export class MyInfoComponent implements OnInit {
     //current info is retrieved from session storage and set to currentUserInfo to show updated info to user
     //current info is also set to updateEmployee, which is two-way bound to form in template
     this.employeeService.updateEmployee(this.updatePwd).subscribe((response)=>{
-      this.oldPassword = '';
-      this.confirmNewPassword = '';
-      this.updatePwd.userPassword = '';
-      this.authService.storeUserInfo(response);
-      this.currentUserInfo = this.authService.retreiveUserInfo();
-      this.updateEmployee =  this.authService.retreiveUserInfo();
-      this.shouldDisplay = false;
+      this.router.navigate(['logout']);
+      //this.oldPassword = '';
+      //this.confirmNewPassword = '';
+      //this.updatePwd.userPassword = '';
+      //this.authService.storeUserInfo(response);
+      //this.currentUserInfo = this.authService.retreiveUserInfo();
+      //this.updateEmployee =  this.authService.retreiveUserInfo();
+      //this.shouldDisplay = false;
     })
   }
 
