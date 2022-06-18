@@ -44,7 +44,7 @@ import { MyRequestsComponent } from './requests/my-requests/my-requests.componen
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
