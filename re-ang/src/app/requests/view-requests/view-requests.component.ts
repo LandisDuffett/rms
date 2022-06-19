@@ -91,6 +91,7 @@ export class ViewRequestsComponent implements OnInit {
       }
     }
   }
+  
   deleteRequest(requestId: number){
    this.requestService.deleteRequest(requestId).subscribe((response)=>{
     // we need a fresh fetch of all requests from the database
