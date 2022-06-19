@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.reimburse.rms.dao.RequestDao;
 import com.reimburse.rms.entity.RequestEntity;
 import com.reimburse.rms.exception.ApplicationException;
+import com.reimburse.rms.exception.RequestEmptyException;
 import com.reimburse.rms.exception.RequestsNotFoundException;
 import com.reimburse.rms.pojo.RequestPojo;
 
@@ -53,12 +54,15 @@ public class RequestServiceImpl implements RequestService {
 	}
 
 	@Override
-	public List<RequestPojo> getAllRequests() throws ApplicationException {
+	public List<RequestPojo> getAllRequests() throws ApplicationException, RequestEmptyException {
 		List<RequestEntity> allRequestsEntity = requestDao.findAll();
 		//now we have to copy each book entity object in the collection to a 
 		//collection of book pojos
 		//create an empty collection of book pojos
 		List<RequestPojo> allRequestsPojo = new ArrayList<RequestPojo>();
+		if(allRequestsEntity.isEmpty()) {
+			throw new RequestEmptyException();
+		}
 		for(RequestEntity fetchedRequestEntity: allRequestsEntity) {
 			RequestPojo returnRequestPojo = new RequestPojo(fetchedRequestEntity.getRequestId(), fetchedRequestEntity.getRequestUserId(), 
 					fetchedRequestEntity.getRequestAmount(), fetchedRequestEntity.getRequestDescription(), fetchedRequestEntity.getRequestStatus(), 

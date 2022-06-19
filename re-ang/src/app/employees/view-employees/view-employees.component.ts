@@ -13,7 +13,13 @@ export class ViewEmployeesComponent implements OnInit {
 
   currentAllEmployees: User[];
 
+  userMessage: string = "";
+
+  userRequestMessage: string = "";
+
   currentEmpRequests: Request[];
+
+  oneEmpError = false;
 
   displayForm: boolean = false;
 
@@ -56,10 +62,19 @@ export class ViewEmployeesComponent implements OnInit {
 
   loadData(){
     //need to retrieve a list of all employees for display and as basis for retrieiving individual employees' requests
-    this.employeeService.getAllEmployees().subscribe(response => {
-      this.currentAllEmployees = response;
-      this.displayAll = true;
-    })
+    this.employeeService.getAllEmployees().subscribe(
+      {
+        next: (response) => {
+          console.log(response)
+          this.userMessage = '';
+          this.currentAllEmployees = response;
+          this.displayAll = true;
+        },
+        error: (error) => {
+          console.log(error.error.error);
+          this.userMessage = error.error.error;
+        }
+      });
   }
 
   displayAllReqs(){
@@ -74,14 +89,23 @@ export class ViewEmployeesComponent implements OnInit {
     this.currUsrFN = ufn;
     this.currUsrLN = uln;
     //uses the userId parameter to retrieve all requests for that individual and sets the response array to currentEmpRequests
-    this.employeeService.getEmpReqs(userId).subscribe(response => {
-      this.currentEmpRequests = response;
-      //toggles displayAll off in order to hide all employees
-      this.displayAll = false;
-      //toggles displayEmpReqs on in order to display chosen individual's requests
-      this.displayEmpReqs = true;
-    });
-  }
+    this.employeeService.getEmpReqs(userId).subscribe(
+      {
+        next: (response) => {
+          console.log(response)
+          this.userRequestMessage = '';
+          this.currentEmpRequests = response;
+          this.displayAll = false;
+          this.displayEmpReqs = true;
+        },
+        error: (error) => {
+          console.log(error.error.error);
+          this.displayAll = false;
+          this.oneEmpError = true;
+          this.userRequestMessage = error.error.error;
+        }
+      });
+    }
 
   addANewEmp(){
     this.employeeService.addEmployee(this.newEmployee).subscribe((response)=>{
@@ -96,6 +120,7 @@ export class ViewEmployeesComponent implements OnInit {
   goBack() {
     //returns to display of all employees since navbar does not provide this link
     this.displayEmpReqs = false;
+    this.oneEmpError = false;
     this.loadData();
   }
 

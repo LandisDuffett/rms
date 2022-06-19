@@ -1,0 +1,96 @@
+2022-06-17 17:29:46,794 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting RmsApplication using Java 18.0.1.1 on DESKTOP-VVPO5PK with PID 14972 (C:\Users\Landis\eclipse-space3\rms.zip_expanded\rms\target\classes started by Landis in C:\Users\Landis\eclipse-space3\rms.zip_expanded\rms)
+2022-06-17 17:29:46,798 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-06-17 17:29:50,550 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started RmsApplication in 4.114 seconds (JVM running for 4.433)
+2022-06-17 21:51:53,354 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting RmsApplication using Java 18.0.1.1 on DESKTOP-VVPO5PK with PID 21516 (C:\Users\Landis\eclipse-space3\rms.zip_expanded\rms\target\classes started by Landis in C:\Users\Landis\eclipse-space3\rms.zip_expanded\rms)
+2022-06-17 21:51:53,357 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-06-17 21:51:59,214 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started RmsApplication in 6.342 seconds (JVM running for 6.782)
+2022-06-17 21:54:15,807 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-2] Entering UserController.com.reimburse.rms.controller.UserController
+2022-06-17 21:54:15,828 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-2] Entering UserServiceImpl.com.reimburse.rms.service.UserServiceImpl
+2022-06-17 21:54:15,839 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-2] Entering UserDao.com.reimburse.rms.dao.UserDao
+2022-06-17 21:54:16,085 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-2] Exiting UserDao.com.reimburse.rms.dao.UserDao
+2022-06-17 21:54:16,086 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-2] Exiting UserServiceImpl.com.reimburse.rms.service.UserServiceImpl
+2022-06-17 21:54:16,086 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-2] Exiting UserController.com.reimburse.rms.controller.UserController
+2022-06-17 21:54:16,150 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-3] Entering RequestController.com.reimburse.rms.controller.RequestController
+2022-06-17 21:54:16,160 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-3] Entering RequestServiceImpl.com.reimburse.rms.service.RequestServiceImpl
+2022-06-17 21:54:16,166 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-3] Entering RequestDao.com.reimburse.rms.dao.RequestDao
+2022-06-17 21:54:16,178 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-3] Exiting RequestDao.com.reimburse.rms.dao.RequestDao
+2022-06-17 21:54:16,180 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-3] Exiting RequestServiceImpl.com.reimburse.rms.service.RequestServiceImpl
+2022-06-17 21:54:16,180 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-3] Exiting RequestController.com.reimburse.rms.controller.RequestController
+2022-06-17 21:54:16,180 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-3] Entering GlobalExceptionHandler.com.reimburse.rms.exception.GlobalExceptionHandler
+2022-06-17 21:54:16,192 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-3] Exiting GlobalExceptionHandler.com.reimburse.rms.exception.GlobalExceptionHandler
+2022-06-17 21:54:49,093 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-4] Entering UserController.com.reimburse.rms.controller.UserController
+2022-06-17 21:54:49,094 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-4] Entering UserServiceImpl.com.reimburse.rms.service.UserServiceImpl
+2022-06-17 21:54:49,094 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-4] Entering UserDao.com.reimburse.rms.dao.UserDao
+2022-06-17 21:54:49,097 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-4] Exiting UserDao.com.reimburse.rms.dao.UserDao
+2022-06-17 21:54:49,097 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-4] Exiting UserServiceImpl.com.reimburse.rms.service.UserServiceImpl
+2022-06-17 21:54:49,097 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-4] Exiting UserController.com.reimburse.rms.controller.UserController
+2022-06-17 21:54:49,116 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-5] Entering RequestController.com.reimburse.rms.controller.RequestController
+2022-06-17 21:54:49,116 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-5] Entering RequestServiceImpl.com.reimburse.rms.service.RequestServiceImpl
+2022-06-17 21:54:49,144 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-5] Exiting RequestServiceImpl.com.reimburse.rms.service.RequestServiceImpl
+2022-06-17 21:54:49,144 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-5] Exiting RequestController.com.reimburse.rms.controller.RequestController
+2022-06-17 21:54:52,690 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-6] Entering UserController.com.reimburse.rms.controller.UserController
+2022-06-17 21:54:52,691 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-6] Entering UserServiceImpl.com.reimburse.rms.service.UserServiceImpl
+2022-06-17 21:54:52,696 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-6] Exiting UserServiceImpl.com.reimburse.rms.service.UserServiceImpl
+2022-06-17 21:54:52,696 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-6] Exiting UserController.com.reimburse.rms.controller.UserController
+2022-06-17 21:55:01,746 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-7] Entering RequestController.com.reimburse.rms.controller.RequestController
+2022-06-17 21:55:01,747 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-7] Entering RequestServiceImpl.com.reimburse.rms.service.RequestServiceImpl
+2022-06-17 21:55:01,747 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-7] Entering RequestDao.com.reimburse.rms.dao.RequestDao
+2022-06-17 21:55:01,748 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-7] Exiting RequestDao.com.reimburse.rms.dao.RequestDao
+2022-06-17 21:55:01,749 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-7] Exiting RequestServiceImpl.com.reimburse.rms.service.RequestServiceImpl
+2022-06-17 21:55:01,749 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-7] Exiting RequestController.com.reimburse.rms.controller.RequestController
+2022-06-17 21:55:01,749 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-7] Entering GlobalExceptionHandler.com.reimburse.rms.exception.GlobalExceptionHandler
+2022-06-17 21:55:01,750 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-7] Exiting GlobalExceptionHandler.com.reimburse.rms.exception.GlobalExceptionHandler
+2022-06-17 21:55:05,824 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-8] Entering RequestController.com.reimburse.rms.controller.RequestController
+2022-06-17 21:55:05,824 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-8] Entering RequestServiceImpl.com.reimburse.rms.service.RequestServiceImpl
+2022-06-17 21:55:05,824 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-8] Entering RequestDao.com.reimburse.rms.dao.RequestDao
+2022-06-17 21:55:05,826 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-8] Exiting RequestDao.com.reimburse.rms.dao.RequestDao
+2022-06-17 21:55:05,827 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-8] Exiting RequestServiceImpl.com.reimburse.rms.service.RequestServiceImpl
+2022-06-17 21:55:05,827 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-8] Exiting RequestController.com.reimburse.rms.controller.RequestController
+2022-06-17 21:55:09,466 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-9] Entering UserController.com.reimburse.rms.controller.UserController
+2022-06-17 21:55:09,466 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-9] Entering UserServiceImpl.com.reimburse.rms.service.UserServiceImpl
+2022-06-17 21:55:09,469 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-9] Exiting UserServiceImpl.com.reimburse.rms.service.UserServiceImpl
+2022-06-17 21:55:09,470 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-9] Exiting UserController.com.reimburse.rms.controller.UserController
+2022-06-17 21:55:11,069 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-10] Entering RequestController.com.reimburse.rms.controller.RequestController
+2022-06-17 21:55:11,069 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-10] Entering RequestServiceImpl.com.reimburse.rms.service.RequestServiceImpl
+2022-06-17 21:55:11,069 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-10] Entering RequestDao.com.reimburse.rms.dao.RequestDao
+2022-06-17 21:55:11,071 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-10] Exiting RequestDao.com.reimburse.rms.dao.RequestDao
+2022-06-17 21:55:11,071 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-10] Exiting RequestServiceImpl.com.reimburse.rms.service.RequestServiceImpl
+2022-06-17 21:55:11,071 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-10] Exiting RequestController.com.reimburse.rms.controller.RequestController
+2022-06-17 21:55:11,071 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-10] Entering GlobalExceptionHandler.com.reimburse.rms.exception.GlobalExceptionHandler
+2022-06-17 21:55:11,072 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-10] Exiting GlobalExceptionHandler.com.reimburse.rms.exception.GlobalExceptionHandler
+2022-06-17 21:55:12,798 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-1] Entering RequestController.com.reimburse.rms.controller.RequestController
+2022-06-17 21:55:12,798 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-1] Entering RequestServiceImpl.com.reimburse.rms.service.RequestServiceImpl
+2022-06-17 21:55:12,798 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-1] Entering RequestDao.com.reimburse.rms.dao.RequestDao
+2022-06-17 21:55:12,800 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-1] Exiting RequestDao.com.reimburse.rms.dao.RequestDao
+2022-06-17 21:55:12,800 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-1] Exiting RequestServiceImpl.com.reimburse.rms.service.RequestServiceImpl
+2022-06-17 21:55:12,801 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-1] Exiting RequestController.com.reimburse.rms.controller.RequestController
+2022-06-17 21:55:12,802 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-1] Entering GlobalExceptionHandler.com.reimburse.rms.exception.GlobalExceptionHandler
+2022-06-17 21:55:12,802 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-1] Exiting GlobalExceptionHandler.com.reimburse.rms.exception.GlobalExceptionHandler
+2022-06-17 22:00:19,728 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting RmsApplication using Java 18.0.1.1 on DESKTOP-VVPO5PK with PID 21516 (C:\Users\Landis\eclipse-space3\rms.zip_expanded\rms\target\classes started by Landis in C:\Users\Landis\eclipse-space3\rms.zip_expanded\rms)
+2022-06-17 22:00:19,728 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-06-17 22:01:02,260 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting RmsApplication using Java 18.0.1.1 on DESKTOP-VVPO5PK with PID 22168 (C:\Users\Landis\eclipse-space3\rms.zip_expanded\rms\target\classes started by Landis in C:\Users\Landis\eclipse-space3\rms.zip_expanded\rms)
+2022-06-17 22:01:02,261 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-06-17 22:02:48,485 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting RmsApplication using Java 18.0.1.1 on DESKTOP-VVPO5PK with PID 25320 (C:\Users\Landis\eclipse-space3\rms.zip_expanded\rms\target\classes started by Landis in C:\Users\Landis\eclipse-space3\rms.zip_expanded\rms)
+2022-06-17 22:02:48,486 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-06-17 22:02:53,603 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started RmsApplication in 5.546 seconds (JVM running for 6.013)
+2022-06-17 22:04:36,990 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-1] Entering UserController.com.reimburse.rms.controller.UserController
+2022-06-17 22:04:37,000 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-1] Entering UserServiceImpl.com.reimburse.rms.service.UserServiceImpl
+2022-06-17 22:04:37,006 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-1] Entering UserDao.com.reimburse.rms.dao.UserDao
+2022-06-17 22:04:37,169 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-1] Exiting UserDao.com.reimburse.rms.dao.UserDao
+2022-06-17 22:04:37,169 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-1] Exiting UserServiceImpl.com.reimburse.rms.service.UserServiceImpl
+2022-06-17 22:04:37,170 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-1] Exiting UserController.com.reimburse.rms.controller.UserController
+2022-06-17 22:04:37,204 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-2] Entering RequestController.com.reimburse.rms.controller.RequestController
+2022-06-17 22:04:37,209 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-2] Entering RequestServiceImpl.com.reimburse.rms.service.RequestServiceImpl
+2022-06-17 22:04:37,213 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-2] Entering RequestDao.com.reimburse.rms.dao.RequestDao
+2022-06-17 22:04:37,253 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-2] Exiting RequestDao.com.reimburse.rms.dao.RequestDao
+2022-06-17 22:04:37,253 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-2] Exiting RequestServiceImpl.com.reimburse.rms.service.RequestServiceImpl
+2022-06-17 22:04:37,254 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-2] Exiting RequestController.com.reimburse.rms.controller.RequestController
+2022-06-17 22:05:35,906 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-4] Entering UserController.com.reimburse.rms.controller.UserController
+2022-06-17 22:05:35,906 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-4] Entering UserServiceImpl.com.reimburse.rms.service.UserServiceImpl
+2022-06-17 22:05:35,915 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-4] Entering CrudRepository.org.springframework.data.repository.CrudRepository
+2022-06-17 22:05:36,111 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-4] Exiting CrudRepository.org.springframework.data.repository.CrudRepository
+2022-06-17 22:05:36,112 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-4] Exiting UserServiceImpl.com.reimburse.rms.service.UserServiceImpl
+2022-06-17 22:05:36,112 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-4] Exiting UserController.com.reimburse.rms.controller.UserController
+2022-06-17 22:06:33,450 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting RmsApplication using Java 18.0.1.1 on DESKTOP-VVPO5PK with PID 25320 (C:\Users\Landis\eclipse-space3\rms.zip_expanded\rms\target\classes started by Landis in C:\Users\Landis\eclipse-space3\rms.zip_expanded\rms)
+2022-06-17 22:06:33,450 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-06-17 22:06:34,470 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started RmsApplication in 1.054 seconds (JVM running for 226.879)

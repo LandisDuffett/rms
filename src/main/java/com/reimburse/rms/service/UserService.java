@@ -3,6 +3,7 @@ package com.reimburse.rms.service;
 import java.util.List;
 
 import com.reimburse.rms.exception.ApplicationException;
+import com.reimburse.rms.exception.UserEmptyException;
 import com.reimburse.rms.exception.UserNotFoundException;
 import com.reimburse.rms.pojo.UserPojo;
 
@@ -13,7 +14,7 @@ public interface UserService {
 	
 	boolean deleteUser(int userId) throws ApplicationException;
 	
-	List<UserPojo> getAllUsers() throws ApplicationException;
+	List<UserPojo> getAllUsers() throws ApplicationException, UserEmptyException;
 	
 	UserPojo getAUser(int userId) throws ApplicationException;
 

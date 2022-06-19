@@ -2,26 +2,33 @@
     <div class="row mt-5">
         <div class="col-2">
         </div>
-        <div class="col-8">
+        <div class="text-center col-8">
             <h2 class="title">EMPLOYEE REQUESTS</h2>
-            <div class="row justify-content-center">
+            <div *ngIf="requestMessage!=''">
+                <h3>{{ requestMessage }}</h3>            
+             </div>
+            <div *ngIf="!requestMessage" class="row justify-content-center">
                 <button
                     type="button"
                     class="btn btn2 btn-primary m-2 w-25"
                     (click)="displayAllReq()">View All
                 </button>
+                <ng-container *ngIf="pendingButton">
                 <button
                     type="button"
                     class="btn btn2 btn-primary m-2 w-25"
                     (click)="displayPendReq()">View Pending
                 </button>
+                </ng-container>
+                <ng-container *ngIf="resolvedButton">
                 <button
                     type="button"
                     class="btn btn2 btn-primary m-2 w-25"
                     (click)="displayResReq()">View Resolved
                 </button>
+                </ng-container>
             </div>
-            <div *ngIf="displayAll">
+            <div *ngIf="!requestMessage && displayAll">
             <h2 class="title">All Requests</h2>
             <table class="table">
                 <thead class="bg-secondary">
@@ -67,7 +74,7 @@
                 </tbody>
             </table>
         </div>
-        <div *ngIf="displayPend">
+        <div *ngIf="!requestMessage && displayPend">
             <h2 class="title">Pending Requests</h2>
             <table class="table">
                 <thead class="bg-secondary">
@@ -111,7 +118,7 @@
                 </tbody>
             </table>
         </div>
-        <div *ngIf="displayRes">
+        <div *ngIf="!requestMessage && displayRes">
             <h2 class="title">Resolved Requests</h2>
             <table class="table">
                 <thead class="bg-secondary">

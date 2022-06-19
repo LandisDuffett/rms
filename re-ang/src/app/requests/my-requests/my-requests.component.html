@@ -1,24 +1,28 @@
 <div class="container">
-    <div class="row mt-5">
+    <div class="text-center row mt-5">
         <div class="col-2">
         </div>
         <div class="col-8">
-            <div class="row justify-content-center">
+            <div *ngIf="!myRequestMessage" class="row justify-content-center">
             <button
                 type="button"
                 class="btn btn2 btn-primary m-2 w-25"
                 (click)="displayAllMyReq()">View All
             </button>
+            <ng-container *ngIf="!myRequestMessage && pendingButton">
             <button
                 type="button"
                 class="btn btn2 btn-primary m-2 w-25"
                 (click)="displayMyPendReq()">View Pending
             </button>
+            </ng-container>
+            <ng-container *ngIf="!myRequestMessage && resolvedButton">
             <button
                 type="button"
                 class="btn btn2 btn-primary m-2 w-25"
                 (click)="displayMyResReq()">View Resolved
             </button>
+            </ng-container>
             <button 
                 type="button" 
                 class="btn btn2 btn-success m-2 w-25" 
@@ -87,6 +91,9 @@
         </div>
         <div>
             <h2 class="title">My Requests</h2>
+            <div *ngIf="myRequestMessage!=''">
+                <h3>{{ myRequestMessage }}</h3>            
+             </div>
             <table class="table" *ngIf="displayAll">
                 <thead class="bg-secondary">
                     <tr class="text-white">

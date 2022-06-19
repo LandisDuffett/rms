@@ -10,6 +10,6 @@ public class RequestsNotFoundException extends Exception{
 	
 	@Override
 	public String getMessage() {
-		return "Requests for user with id:" + userId +" not Found!";
+		return "No current requests for user with id: " + userId +"";
 	}
 }

@@ -14,8 +14,14 @@ export class MyRequestsComponent implements OnInit {
   currentMyRequests: Request[];
 
   shouldDisplay: boolean = false;
+
+  pendingButton: boolean = false;
+
+  resolvedButton: boolean = false;
   
   currentUser = this.authService.retreiveUserInfo();
+
+  myRequestMessage: string = '';
 
   newRequest: Request = {
     requestId: 0,
@@ -46,11 +52,30 @@ export class MyRequestsComponent implements OnInit {
     let usr = this.authService.retreiveUserInfo();
     let usrid = usr.userId;
     //get all requests for the currently logged in employee
-    this.requestService.getEmpReqs(usrid).subscribe(response => {
-      console.log(usr);
-      console.log(usrid);
-      this.currentMyRequests = response;
-    })
+    this.requestService.getEmpReqs(usrid).subscribe(
+      {
+        next: (response) => {
+          console.log(response)
+          this.myRequestMessage = '';
+          this.currentMyRequests = response;
+          this.setButtons();
+        },
+        error: (error) => {
+          console.log(error.error.error);
+          this.myRequestMessage = error.error.error;
+        }
+      });
+  }
+
+  setButtons() {
+    for(let item of this.currentMyRequests) {
+      if(item.requestStatus == "pending") {
+        this.pendingButton = true;
+      }
+      else if(item.requestStatus != "pending") {
+        this.resolvedButton = true;
+      }
+    }
   }
 
   //toggle display of all requests

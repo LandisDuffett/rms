@@ -30,32 +30,30 @@ export class LoginComponent implements OnInit {
   }
 
   loginValidation(){
-    this.userService.validateUser(this.user).subscribe((response)=>{
-      console.log(response==null);
-      if(response != null ){
-        //login success
-        // send the respone to auth service and store the info in the session storage
-        this.authService.storeUserInfo(response);
-        // also set the isLoggedIn varibale of auth service to true
-        this.authService.isLoggedIn = true;
-        if(response.userRole == "admin"){
-            //set the role to admin in auth service
-            this.authService.role="admin";
-            // route to view-http-book
-            this.router.navigate(['view-requests']);
-        }else if(response.userRole == "employee"){
-            //set the role to employee in auth service
-            this.authService.role="employee";
-            // route to display component
-            this.router.navigate(['my-requests']);
+    this.userService.validateUser(this.user).subscribe(
+      {
+        next: (response) => {
+          if(response != null) {
+            this.authService.storeUserInfo(response);
+            this.authService.isLoggedIn = true;
+          if(response.userRole == "admin"){
+              //set the role to admin in auth service
+              this.authService.role="admin";
+              // route to view-http-book
+              this.router.navigate(['view-requests']);
+          }else if(response.userRole == "employee"){
+              //set the role to employee in auth service
+              this.authService.role="employee";
+              // route to display component
+              this.router.navigate(['my-requests']);
+          }
+          }
+          console.log(response);
+        },
+        error: (error) => {
+          console.log(error.error.error);
+          Swal.fire(error.error.error)
         }
-      }else{
-        //login failed
-        // stay back in this component and display
-            // an error message on the the template
-        Swal.fire("invalid login credentials");
-      }
-    
-    });
+      });
   }
 }

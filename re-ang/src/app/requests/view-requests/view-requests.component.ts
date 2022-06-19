@@ -12,6 +12,12 @@ export class ViewRequestsComponent implements OnInit {
   
   currentAllRequests: Request[];
 
+  requestMessage: string = "";
+
+  pendingButton: boolean = false;
+
+  resolvedButton: boolean = false;
+
   shouldDisplay: boolean = false;
 
   displayAll: boolean = false;
@@ -53,12 +59,38 @@ export class ViewRequestsComponent implements OnInit {
 
   loadData(){
     //get all employee requests
-    this.requestService.getAllRequests().subscribe(response => {
+    this.requestService.getAllRequests().subscribe(
+      {
+        next: (response) => {
+          console.log(response);
+          this.requestMessage = '';
+          this.currentAllRequests = response;
+          this.setButtons();
+        },
+        error: (error) => {
+          console.log(error.error.error);
+          this.requestMessage = error.error.error;
+        }
+      });
+  }
+      
+    /*
+      response => {
       console.log(response);
       this.currentAllRequests = response;
     })
-  }
+  }*/
 
+  setButtons() {
+    for(let item of this.currentAllRequests) {
+      if(item.requestStatus == "pending") {
+        this.pendingButton = true;
+      }
+      else if(item.requestStatus != "pending") {
+        this.resolvedButton = true;
+      }
+    }
+  }
   deleteRequest(requestId: number){
    this.requestService.deleteRequest(requestId).subscribe((response)=>{
     // we need a fresh fetch of all requests from the database

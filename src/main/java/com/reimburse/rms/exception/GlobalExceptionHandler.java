@@ -35,8 +35,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		    return new ResponseEntity<Object>(errors, headers, status);
 	}
 	
-	@ExceptionHandler(RequestsNotFoundException.class)
-	protected ResponseEntity<Object> handleRequestsNotFoundException(RequestsNotFoundException ex) { // changed the argument list to the exception(removed headers, status, request)
+	@ExceptionHandler({RequestsNotFoundException.class, RequestEmptyException.class})
+	protected ResponseEntity<Object> handleRequestsNotFoundException(Exception ex) { // changed the argument list to the exception(removed headers, status, request)
 		 Map<String, String> errors = new HashMap<>();										// which was the cause for the 500 internal error	
 		 System.out.println(errors);
 		 errors.put("date", LocalDate.now()+"");
@@ -45,8 +45,10 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		 return new ResponseEntity<Object>(errors, HttpStatus.BAD_REQUEST);
 	}
 	
-	@ExceptionHandler(UserNotFoundException.class)
-	protected ResponseEntity<Object> handleUserNotFoundException(UserNotFoundException ex) { // changed the argument list to the exception(removed headers, status, request)
+	
+	
+	@ExceptionHandler({UserNotFoundException.class, UserEmptyException.class})
+	protected ResponseEntity<Object> handleUserNotFoundException(Exception ex) { // changed the argument list to the exception(removed headers, status, request)
 		 Map<String, String> errors = new HashMap<>();										// which was the cause for the 500 internal error	
 		 System.out.println(errors);
 		 errors.put("date", LocalDate.now()+"");

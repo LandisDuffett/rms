@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.reimburse.rms.exception.ApplicationException;
+import com.reimburse.rms.exception.RequestEmptyException;
 import com.reimburse.rms.exception.RequestsNotFoundException;
 import com.reimburse.rms.pojo.RequestPojo;
 import com.reimburse.rms.service.RequestService;
@@ -32,7 +33,7 @@ public class RequestController {
 	//create the rest methods for the rest endpoints
 	//https://localhost:5555/api/books
 	@GetMapping("requests")
-	public List<RequestPojo> getAllRequests() throws ApplicationException {
+	public List<RequestPojo> getAllRequests() throws ApplicationException, RequestEmptyException {
 		return requestService.getAllRequests();
 	}
 	

@@ -12,6 +12,7 @@ import com.reimburse.rms.dao.UserDao;
 import com.reimburse.rms.entity.RequestEntity;
 import com.reimburse.rms.entity.UserEntity;
 import com.reimburse.rms.exception.ApplicationException;
+import com.reimburse.rms.exception.UserEmptyException;
 import com.reimburse.rms.exception.UserNotFoundException;
 import com.reimburse.rms.pojo.RequestPojo;
 import com.reimburse.rms.pojo.UserPojo;
@@ -55,12 +56,15 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public List<UserPojo> getAllUsers() throws ApplicationException {
+	public List<UserPojo> getAllUsers() throws ApplicationException, UserEmptyException {
 		List<UserEntity> allUsersEntity = userDao.findAll();
 		//now we have to copy each book entity object in the collection to a 
 		//collection of book pojos
 		//create an empty collection of book pojos
 		List<UserPojo> allUsersPojo = new ArrayList<UserPojo>();
+		if(allUsersEntity.isEmpty()) {
+			throw new UserEmptyException();
+		}
 		for(UserEntity fetchedUserEntity: allUsersEntity) {
 			UserPojo returnUserPojo = new UserPojo(fetchedUserEntity.getUserId(), fetchedUserEntity.getUserFirstName(), 
 					fetchedUserEntity.getUserLastName(), fetchedUserEntity.getUserEmail(), 

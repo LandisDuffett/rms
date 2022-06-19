@@ -2,6 +2,7 @@ package com.reimburse.rms;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.lenient;
 import static org.mockito.Mockito.times;
@@ -29,6 +30,8 @@ import org.mockito.quality.Strictness;
 import com.reimburse.rms.dao.RequestDao;
 import com.reimburse.rms.entity.RequestEntity;
 import com.reimburse.rms.exception.ApplicationException;
+import com.reimburse.rms.exception.RequestEmptyException;
+import com.reimburse.rms.exception.RequestsNotFoundException;
 import com.reimburse.rms.pojo.RequestPojo;
 import com.reimburse.rms.service.RequestService;
 import com.reimburse.rms.service.RequestServiceImpl;
@@ -46,28 +49,31 @@ public class RequestServiceTest {
 	private RequestPojo expectedRequestPojo;
 	private RequestEntity dummyRequestEntity;
 	
+	
 	@BeforeEach
 	public void setup() {
 		expectedRequestPojo = new RequestPojo(2, 10, 100, "something", "resolved", "image", "", "");
 		dummyRequestEntity = new RequestEntity(2, 10, 100, "something", "resolved", "image", "", "");
 	}
 	
-	/*
+	
 	@DisplayName("JUnit test for add request meethod")
 	@Test
 	public void testAddRequest() throws ApplicationException {
-		when(requestDao.saveAndFlush(dummyRequestEntity)).thenReturn(dummyRequestEntity);
+		RequestEntity dummyRequestEntity = new RequestEntity(2, 10, 100, "something", "resolved", "image", "", "");
+		when(requestDao.saveAndFlush(any(RequestEntity.class))).thenReturn(dummyRequestEntity); 
 		
 		RequestPojo sendRequestPojo = new RequestPojo(2, 10, 100, "something", "resolved", "image", "", "");
 		RequestPojo actualRequestPojo = requestService.addRequest(sendRequestPojo);
 		
 		assertEquals(2, actualRequestPojo.getRequestId());
-	}*/
+	}
+	
 	
 	 // JUnit test for getAllBooks method
     @DisplayName("JUnit test for getAllRequests method")
     @Test
-    public void testGetAllRequests() throws ApplicationException {
+    public void testGetAllRequests() throws ApplicationException, RequestEmptyException {
         when(requestDao.findAll()).thenReturn(List.of(dummyRequestEntity, dummyRequestEntity));
    
         List<RequestPojo> actualAllRequestPojoList = requestService.getAllRequests();
@@ -85,17 +91,17 @@ public class RequestServiceTest {
     	assertEquals(expectedRequestPojo, actualRequestPojo);
     }
    
-    /*
+    
  // JUnit test for getABook method
     @DisplayName("JUnit test for getRequestsByUserId method")
     @Test
-    public void testGetRequestsByUserId() throws ApplicationException {
-    	when(requestDao.findById(1)).thenReturn(List.of(dummyRequestEntity, dummyRequestEntity));
-    	 List<RequestPojo> actualAllRequestPojoList = requestService.getRequestsByUserId(1));
+    public void testGetRequestsByUserId() throws ApplicationException, RequestsNotFoundException {
+    	when(requestDao.findByRequestUserId(1)).thenReturn(List.of(dummyRequestEntity, dummyRequestEntity));
+    	 List<RequestPojo> actualAllRequestPojoList = requestService.getRequestsByUserId(1);
 
          assertNotNull(actualAllRequestPojoList);
          assertEquals(2, actualAllRequestPojoList.size());
-    }*/
+    }
     
     // JUnit test for deleteBook method
     @DisplayName("JUnit test for deleteRequest method")
@@ -105,17 +111,17 @@ public class RequestServiceTest {
     	requestService.deleteRequest(1);
     	verify(requestDao, times(1)).deleteById(1);
     }
+
     
-    /*
     // JUnit test for save Book method
     @DisplayName("JUnit test for update request method")
     @Test
     public void testUpdateRequest() throws ApplicationException{
-       when(requestDao.save(dummyRequestEntity)).thenReturn(dummyRequestEntity);
+       when(requestDao.save(any(RequestEntity.class))).thenReturn(dummyRequestEntity);
 
        RequestPojo sendRequestPojo = new RequestPojo(2, 10, 100, "something", "resolved", "image", "", "");
        RequestPojo actualRequestPojo = requestService.updateRequest(sendRequestPojo);
 
        assertEquals(expectedRequestPojo, actualRequestPojo);
-    }*/
+    }
 }

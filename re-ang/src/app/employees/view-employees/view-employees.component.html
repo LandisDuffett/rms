@@ -1,6 +1,9 @@
 <div class="container">
     <div class="row mt-5">
-        <div class="col-12" *ngIf="displayAll">
+        <div *ngIf="userMessage!=''">
+            <h3>{{userMessage}}</h3>
+        </div>
+        <div class="col-12" *ngIf="!userMessage && displayAll">
             <h2 class="title">Employees</h2>
             <table class="table">
                 <thead class="bg-secondary">
@@ -34,7 +37,16 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-12" *ngIf="displayEmpReqs">
+        <div class="text-center" *ngIf="userRequestMessage!='' && oneEmpError">
+            <button
+                    type="button"
+                    class="btn btn-danger m-2"
+                    (click)="goBack()">
+                                    Back to Employees
+                </button>
+            <h3>{{userRequestMessage}}</h3>
+        </div>
+        <div class="col-12 text-center" *ngIf="!userRequestMessage && displayEmpReqs">
             <h2 class="title">Requests submitted by {{currUsrLN}}, {{currUsrFN}}</h2>
                 <button
                     type="button"

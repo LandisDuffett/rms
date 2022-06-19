@@ -2,6 +2,7 @@ package com.reimburse.rms;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.lenient;
 import static org.mockito.Mockito.times;
@@ -29,6 +30,8 @@ import org.mockito.quality.Strictness;
 import com.reimburse.rms.dao.UserDao;
 import com.reimburse.rms.entity.UserEntity;
 import com.reimburse.rms.exception.ApplicationException;
+import com.reimburse.rms.exception.UserEmptyException;
+import com.reimburse.rms.exception.UserNotFoundException;
 import com.reimburse.rms.pojo.UserPojo;
 import com.reimburse.rms.service.UserService;
 import com.reimburse.rms.service.UserServiceImpl;
@@ -67,7 +70,7 @@ public class UserServiceTest {
 	 // JUnit test for getAllBooks method
     @DisplayName("JUnit test for getAllUsers method")
     @Test
-    public void testGetAllUsers() throws ApplicationException {
+    public void testGetAllUsers() throws ApplicationException, UserEmptyException {
         when(userDao.findAll()).thenReturn(List.of(dummyUserEntity, dummyUserEntity));
    
         List<UserPojo> actualAllUserPojoList = userService.getAllUsers();
@@ -94,26 +97,27 @@ public class UserServiceTest {
     	verify(userDao, times(1)).deleteById(1);
     }
     
-    /*
+    
     // JUnit test for save Book method
     @DisplayName("JUnit test for update user method")
     @Test
     public void testUpdateUser() throws ApplicationException{
-       when(userDao.save(dummyUserEntity)).thenReturn(dummyUserEntity);
+       when(userDao.save(any(UserEntity.class))).thenReturn(dummyUserEntity);
 
        UserPojo sendUserPojo = new UserPojo(1, "Joe", "Cool", "jcool@gmail.com", "password", "employee");
        UserPojo actualUserPojo = userService.updateUser(sendUserPojo);
 
        assertEquals(expectedUserPojo, actualUserPojo);
-    }*/
+    }
     
-    /*
+    
     // JUnit test for save Book method
     @DisplayName("JUnit test for getUserByEmailAndPassword method")
     @Test
-    public void testGetUserByEmailAndPassword() throws ApplicationException{
-       when(userDao.findByUserEmailAndUserPassword(dummyUserEntity.getUserEmail(), dummyUserEntity.getUserPassword()).thenReturn(Optional.of(dummyUserEntity));
+    public void testGetUserByEmailAndPassword() throws ApplicationException, UserNotFoundException{
+       when(userDao.findByUserEmailAndUserPassword(dummyUserEntity.getUserEmail(), 
+    		   dummyUserEntity.getUserPassword())).thenReturn(Optional.of(dummyUserEntity));
        UserPojo actualUserPojo = userService.getUserByEmailAndPassword(expectedUserPojo);
        assertEquals(expectedUserPojo, actualUserPojo);
-    }*/
+    }
 }

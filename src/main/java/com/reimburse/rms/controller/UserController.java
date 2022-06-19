@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.reimburse.rms.exception.ApplicationException;
+import com.reimburse.rms.exception.UserEmptyException;
 import com.reimburse.rms.exception.UserNotFoundException;
 import com.reimburse.rms.pojo.UserPojo;
 import com.reimburse.rms.service.UserService;
@@ -32,7 +33,7 @@ public class UserController {
 	//create the rest methods for the rest endpoints
 	//https://localhost:5555/api/books
 	@GetMapping("users")
-	public List<UserPojo> getAllUsers() throws ApplicationException {
+	public List<UserPojo> getAllUsers() throws ApplicationException, UserEmptyException {
 		return userService.getAllUsers();
 	}
 	
