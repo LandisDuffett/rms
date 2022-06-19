@@ -762,3 +762,5 @@
 2022-06-18 18:17:36,161 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-4] Exiting RequestDao.com.reimburse.rms.dao.RequestDao
 2022-06-18 18:17:36,162 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-4] Exiting RequestServiceImpl.com.reimburse.rms.service.RequestServiceImpl
 2022-06-18 18:17:36,162 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-4] Exiting RequestController.com.reimburse.rms.controller.RequestController
+2022-06-18 18:17:36,162 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-4] Entering GlobalExceptionHandler.com.reimburse.rms.exception.GlobalExceptionHandler
+2022-06-18 18:17:36,162 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-4] Exiting GlobalExceptionHandler.com.reimburse.rms.exception.GlobalExceptionHandler
