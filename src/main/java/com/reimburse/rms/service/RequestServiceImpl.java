@@ -67,6 +67,8 @@ public class RequestServiceImpl implements RequestService {
 			RequestPojo returnRequestPojo = new RequestPojo(fetchedRequestEntity.getRequestId(), fetchedRequestEntity.getRequestUserId(), 
 					fetchedRequestEntity.getRequestAmount(), fetchedRequestEntity.getRequestDescription(), fetchedRequestEntity.getRequestStatus(), 
 					fetchedRequestEntity.getRequestImagURL(), fetchedRequestEntity.getRequestTime(), fetchedRequestEntity.getResolvedTime());
+			System.out.println(returnRequestPojo);
+			System.out.println(fetchedRequestEntity);
 			allRequestsPojo.add(returnRequestPojo);
 		}
 		return allRequestsPojo;

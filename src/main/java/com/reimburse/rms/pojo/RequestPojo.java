@@ -7,7 +7,7 @@ public class RequestPojo {
 	private int requestId;
 	
 	@NotNull
-	private int userId;
+	private int requestUserId;
 	
 	@NotNull
 	private double requestAmount;
@@ -30,7 +30,7 @@ public class RequestPojo {
 			String resolvedTime) {
 		super();
 		this.requestId = requestId;
-		this.userId = userId;
+		this.requestUserId = userId;
 		this.requestStatus = requestStatus;
 		this.requestTime = requestTime;
 		this.resolvedTime = resolvedTime;
@@ -53,14 +53,14 @@ public class RequestPojo {
 	/**
 	 * @return the userId
 	 */
-	public int getUserId() {
-		return userId;
+	public int getRequestUserId() {
+		return requestUserId;
 	}
 	/**
 	 * @param userId the userId to set
 	 */
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setRequestUserId(int userId) {
+		this.requestUserId = userId;
 	}
 	/**
 	 * @return the requestStatus
@@ -145,7 +145,7 @@ public class RequestPojo {
 		result = prime * result + ((resolvedTime == null) ? 0 : resolvedTime.hashCode());
 		result = prime * result + ((requestDescription == null) ? 0 : requestDescription.hashCode());
 		result = prime * result + ((requestImageURL == null) ? 0 : requestImageURL.hashCode());
-		result = prime * result + userId;
+		result = prime * result + requestUserId;
 		result = prime * result + (int)requestAmount;
 		return result;
 	}
@@ -188,14 +188,14 @@ public class RequestPojo {
 			return false;
 		if (requestId != other.requestId)
 			return false;
-		if (userId != other.userId)
+		if (requestUserId != other.requestUserId)
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "RequestPojo [requestId=" + requestId + "userId=" + userId + ", requestDescription=" + requestDescription + ", requestImageURL=" + requestImageURL + ", requestTime="
+		return "RequestPojo [requestId=" + requestId + "userId=" + requestUserId + ", requestDescription=" + requestDescription + ", requestImageURL=" + requestImageURL + ", requestTime="
 				+ requestTime + ", requestAmount=" + requestAmount + ", requestStatus=" + requestStatus + ", resolvedTime=" + resolvedTime + "]";
 	}
 	

@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.reimburse.rms.pojo.RequestPojo;
+
 @Entity
 @Table(name="requests")
 public class RequestEntity {
@@ -118,6 +120,64 @@ public class RequestEntity {
 		this.resolvedTime = resolvedTime;
 	}
 	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((requestStatus == null) ? 0 : requestStatus.hashCode());
+		result = prime * result + requestId;
+		result = prime * result + ((requestTime == null) ? 0 : requestTime.hashCode());
+		result = prime * result + ((resolvedTime == null) ? 0 : resolvedTime.hashCode());
+		result = prime * result + ((requestDescription == null) ? 0 : requestDescription.hashCode());
+		result = prime * result + ((requestImageURL == null) ? 0 : requestImageURL.hashCode());
+		result = prime * result + requestUserId;
+		result = prime * result + (int)requestAmount;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RequestEntity other = (RequestEntity) obj;
+		if (requestStatus == null) {
+			if (other.requestStatus != null)
+				return false;
+		} else if (!requestStatus.equals(other.requestStatus))
+			return false;
+		if (requestAmount != other.requestAmount)
+			return false;
+		if (resolvedTime == null) {
+			if (other.resolvedTime != null)
+				return false;
+		} else if (!resolvedTime.equals(other.resolvedTime))
+			return false;
+		if (requestTime == null) {
+			if (other.requestTime != null)
+				return false;
+		} else if (!requestTime.equals(other.requestTime))
+			return false;
+		if (requestDescription == null) {
+			if (other.requestDescription != null)
+				return false;
+		} else if (!requestDescription.equals(other.requestDescription))
+			return false;
+		if (requestImageURL == null) {
+			if (other.requestImageURL != null)
+				return false;
+		} else if (!requestImageURL.equals(other.requestImageURL))
+			return false;
+		if (requestId != other.requestId)
+			return false;
+		if (requestUserId != other.requestUserId)
+			return false;
+		return true;
+	}
+
 	
 }
 
