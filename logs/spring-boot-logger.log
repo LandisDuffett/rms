@@ -1455,3 +1455,8 @@
 2022-06-20 22:28:47,953 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-9] Exiting UserController.com.reimburse.rms.controller.UserController
 2022-06-20 22:29:01,999 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-10] Entering UserController.com.reimburse.rms.controller.UserController
 2022-06-20 22:29:01,999 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-10] Entering UserServiceImpl.com.reimburse.rms.service.UserServiceImpl
+2022-06-20 22:29:02,001 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-10] Exiting UserServiceImpl.com.reimburse.rms.service.UserServiceImpl
+2022-06-20 22:29:02,001 INFO com.reimburse.rms.aop.LoggingAspect [http-nio-7474-exec-10] Exiting UserController.com.reimburse.rms.controller.UserController
+2022-06-20 22:35:57,959 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting RmsApplication using Java 18.0.1.1 on DESKTOP-VVPO5PK with PID 18776 (C:\Users\Landis\eclipse-space3\rms.zip_expanded\rms\target\classes started by Landis in C:\Users\Landis\eclipse-space3\rms.zip_expanded\rms)
+2022-06-20 22:35:57,960 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-06-20 22:35:59,941 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started RmsApplication in 2.02 seconds (JVM running for 17524.931)
