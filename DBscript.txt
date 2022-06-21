@@ -1,0 +1,19 @@
+create table users (
+	user_id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY, 
+	user_firstname varchar(20), 
+	user_lastname varchar(20), 
+	user_email varchar(50) UNIQUE, 
+	user_password varchar(20), 
+	user_role varchar(20)
+);
+
+create table requests (
+	request_id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY, 
+	request_userid int, 
+	request_amount decimal, 
+	request_description varchar(50), 
+	request_status varchar(20), 
+	request_imageURL varchar(100), 
+	request_requesttime varchar(50), 
+	request_resolvedtime varchar(50),
+);
